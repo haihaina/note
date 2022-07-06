@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <input class="input" type="text" placeholder="请输入电话号码"> 
+    <button id="btn">验证</button>
+</body>
+<script>
+   let val= document.querySelector('.input')
+   document.querySelector("#btn").addEventListener("click",function (params) {
+        console.log(val.value)
+            var url = "http://localhost:3001/note";
+            var paramsdataa = {phone:val.value};
+            axios({
+                url:url,
+                method:'POST',
+                data:paramsdataa
+            }).then(function (res) {
+                console.log(res.data);
+            });
+        });
+</script>
+</html>
